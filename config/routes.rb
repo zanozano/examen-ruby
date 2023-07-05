@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'contact#index'
   get 'terms', to: 'terms#index'
 
-  post 'messages', to: 'contact#create', as: 'messages'
+  post 'contact', to: 'contact#create', as: 'contact_create'
 
   root 'home#index'
 end
