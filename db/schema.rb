@@ -29,6 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_175510) do
     t.string "name"
     t.string "city"
     t.string "material"
+    t.string "photo"
+    t.string "modified_by_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "equipment_id", null: false

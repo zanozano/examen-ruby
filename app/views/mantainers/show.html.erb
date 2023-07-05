@@ -3,8 +3,9 @@
 <%= render @mantainer %>
 
 <div>
-  <%= link_to "Edit this mantainer", edit_mantainer_path(@mantainer) %> |
-  <%= link_to "Back to mantainers", mantainers_path %>
+<%= link_to "Edit this mantainer", edit_mantainer_path(@mantainer), class: "btn btn-primary" %> |
+<%= link_to "Back to mantainers", mantainers_path, class: "btn btn-secondary" %>
 
-  <%= button_to "Destroy this mantainer", @mantainer, method: :delete %>
+<%= button_to "Destroy this mantainer", @mantainer, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+
 </div>

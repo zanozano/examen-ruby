@@ -1,10 +1,12 @@
 class MantainersController < ApplicationController
-  before_action :set_mantainer, only: %i[ show edit update destroy ]
+  before_action :set_mantainer, only: %i[show edit update destroy]
+  require 'csv'
 
   # GET /mantainers or /mantainers.json
   def index
-    @mantainers = Mantainer.all
+    @mantainers = Mantainer.order(created_at: :desc)
   end
+
 
   # GET /mantainers/1 or /mantainers/1.json
   def show
@@ -13,6 +15,7 @@ class MantainersController < ApplicationController
   # GET /mantainers/new
   def new
     @mantainer = Mantainer.new
+    @cities = load_cities_from_csv
   end
 
   # GET /mantainers/1/edit
@@ -58,13 +61,23 @@ class MantainersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_mantainer
-      @mantainer = Mantainer.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def mantainer_params
-      params.require(:mantainer).permit(:type_equipment, :type_support, :name, :city, :material)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_mantainer
+    @mantainer = Mantainer.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def mantainer_params
+    params.require(:mantainer).permit(:type_equipment, :type_support, :name, :city, :material)
+  end
+
+  # Load cities from CSV file
+  def load_cities_from_csv
+    cities = []
+    CSV.foreach(Rails.root.join('lib', 'cities.csv'), headers: true) do |row|
+      cities << row['city_name']
     end
+    cities
+  end
 end

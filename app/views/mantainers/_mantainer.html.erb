@@ -1,27 +1,35 @@
-<div id="<%= dom_id mantainer %>">
-  <p>
-    <strong>Type equipment:</strong>
-    <%= mantainer.type_equipment %>
-  </p>
+<div id="<%= dom_id mantainer %>" class="card mb-2">
+  <div class="card-body">
+    <p class="card-text">
+      <strong>Type equipment:</strong>
+      <%= mantainer.type_equipment %>
+    </p>
 
-  <p>
-    <strong>Type support:</strong>
-    <%= mantainer.type_support %>
-  </p>
+    <p class="card-text">
+      <strong>Type support:</strong>
+      <%= mantainer.type_support %>
+    </p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= mantainer.name %>
-  </p>
+    <p class="card-text">
+      <strong>Name:</strong>
+      <%= mantainer.name %>
+    </p>
 
-  <p>
-    <strong>City:</strong>
-    <%= mantainer.city %>
-  </p>
+    <p class="card-text">
+      <strong>City:</strong>
+      <%= mantainer.city %>
+    </p>
 
-  <p>
-    <strong>Material:</strong>
-    <%= mantainer.material %>
-  </p>
+    <p class="card-text">
+      <strong>Material:</strong>
+      <%= mantainer.material %>
+    </p>
 
+ 
+    <% if mantainer.photo.present? %>
+      <%= image_tag mantainer.photo.url, class: "card-img-top" %>
+    <% else %>
+      <p>No image available</p>
+    <% end %>
+  </div>
 </div>
