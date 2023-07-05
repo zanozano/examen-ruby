@@ -1,0 +1,42 @@
+<%= form_with(model: mantainer) do |form| %>
+  <% if mantainer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(mantainer.errors.count, "error") %> prohibited this mantainer from being saved:</h2>
+
+      <ul>
+        <% mantainer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :type_equipment, style: "display: block" %>
+    <%= form.text_field :type_equipment %>
+  </div>
+
+  <div>
+    <%= form.label :type_support, style: "display: block" %>
+    <%= form.text_field :type_support %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :city, style: "display: block" %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :material, style: "display: block" %>
+    <%= form.text_field :material %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

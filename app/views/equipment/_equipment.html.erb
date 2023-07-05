@@ -4,11 +4,13 @@
     <h4 class="fw-bold"><%= equipment.equipment_type %></h4>
     <p class="card-text"><strong>Name:</strong> <%= equipment.name %></p>
     <p class="card-text"><strong>Description:</strong> <%= equipment.description %></p>
-    <% if equipment.photo.present? && equipment.photo.exists? %>
-      <%= image_tag equipment.photo, class: "card-img-top equipment-photo" %>
-    <% else %>
-      <%= image_tag "default.png", class: "card-img-top equipment-photo" %>
-    <% end %>
+
+     <% if equipment.photo.present? %>
+      <%= image_tag equipment.photo.url, class: "card-img-top" %>
+      <% else %>
+        <%= image_tag "default.png", class: "card-img-top" %>
+      <% end %>
+
     <% unless current_page?(equipment_path(equipment)) %>
       <%= link_to "Mostrar", equipment, class: "btn btn-primary" %>
     <% end %>

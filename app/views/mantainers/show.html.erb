@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @mantainer %>
+
+<div>
+  <%= link_to "Edit this mantainer", edit_mantainer_path(@mantainer) %> |
+  <%= link_to "Back to mantainers", mantainers_path %>
+
+  <%= button_to "Destroy this mantainer", @mantainer, method: :delete %>
+</div>

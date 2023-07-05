@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_equipment: MyString
+  type_support: MyString
+  name: MyString
+  city: MyString
+  material: MyString
+
+two:
+  type_equipment: MyString
+  type_support: MyString
+  name: MyString
+  city: MyString
+  material: MyString

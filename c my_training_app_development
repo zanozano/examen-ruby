@@ -1,0 +1,34 @@
+                                        List of databases
+              Name              |  Owner   | Encoding | Collate |  Ctype  |   Access privileges   
+--------------------------------+----------+----------+---------+---------+-----------------------
+ Crazy4Cats_development         | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ Crazy4Cats_test                | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ KariPic_development            | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ KariPic_test                   | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ MyApp_MovieRenting_development | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ MyApp_MovieRenting_test        | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ MyApp_Peliculas_development    | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ MyApp_Peliculas_test           | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ MyApp_Twitter_development      | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ MyApp_Twitter_test             | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ MyApp_development              | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ MyApp_test                     | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ TheRialNews_development        | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ TheRialNews_test               | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ howarts_rails_development      | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ howarts_rails_test             | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ my_training_app_development    | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ my_training_app_test           | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ myapp_development              | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ myapp_jobnews_development      | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ myapp_jobnews_test             | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ myapp_test                     | zanozano | UTF8     | C.UTF-8 | C.UTF-8 | 
+ postgres                       | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =Tc/postgres         +
+                                |          |          |         |         | postgres=CTc/postgres+
+                                |          |          |         |         | zanozano=CTc/postgres
+ template0                      | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+                                |          |          |         |         | postgres=CTc/postgres
+ template1                      | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +
+                                |          |          |         |         | postgres=CTc/postgres
+(25 rows)
+

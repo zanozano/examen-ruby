@@ -4,8 +4,9 @@ class EquipmentController < ApplicationController
 
   # GET /equipment or /equipment.json
   def index
-    @equipment = Equipment.paginate(page: params[:page], per_page: 5)
+    @equipment = Equipment.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
+
 
   # GET /equipment/1 or /equipment/1.json
   def show

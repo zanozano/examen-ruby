@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mantainers</h1>
+
+<div id="mantainers">
+  <% @mantainers.each do |mantainer| %>
+    <%= render mantainer %>
+    <p>
+      <%= link_to "Show this mantainer", mantainer %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New mantainer", new_mantainer_path %>

@@ -2,7 +2,9 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-
+  def default_url(*args)
+      model.photo.url if model.photo.present?
+  end
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
