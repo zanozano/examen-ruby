@@ -3,7 +3,13 @@ require 'faker'
 User.create!(
   email: 'admin@fullclima.com',
   password: 'admin123456',
-  admin: true
+  admin: 'admin'
+)
+
+User.create!(
+  email: 'operador@fullclima.com',
+  password: 'operador123456',
+  admin: 'operador'
 )
 
 10.times do |i|

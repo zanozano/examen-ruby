@@ -8,9 +8,10 @@
 <%= link_to "Volver", equipment_index_path, class: "btn btn-outline-secondary" %>
 <%= link_to "Editar", edit_equipment_path(@equipment), class: "btn btn-primary" %>
 </div>
-<% if current_user.admin? %>
+<% if current_user&.admin == 'admin' %>
   <%= button_to "Eliminar", @equipment, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
 <% end %>
+
 </div>
 
 
