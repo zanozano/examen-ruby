@@ -1,9 +1,16 @@
-<div id="<%= dom_id equipment %>" class="card">
+<div id="<%= dom_id equipment %>" class="card mb-2">
   <div class="card-body">
     <h6 class="card-title">Type</h6>
     <h4 class="fw-bold"><%= equipment.equipment_type %></h4>
     <p class="card-text"><strong>Name:</strong> <%= equipment.name %></p>
     <p class="card-text"><strong>Description:</strong> <%= equipment.description %></p>
-    <%= image_tag equipment.photo, class: "card-img-top equipment-photo" %>
+    <% if equipment.photo.present? && equipment.photo.exists? %>
+      <%= image_tag equipment.photo, class: "card-img-top equipment-photo" %>
+    <% else %>
+      <%= image_tag "default.png", class: "card-img-top equipment-photo" %>
+    <% end %>
+    <% unless current_page?(equipment_path(equipment)) %>
+      <%= link_to "Mostrar", equipment, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>

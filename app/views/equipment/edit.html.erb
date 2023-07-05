@@ -1,10 +1,11 @@
+<div class="col-4 mx-auto">
 <h1>Editing equipment</h1>
 
-<%= render "form", equipment: @equipment %>
-
-<br>
-
-<div>
-  <%= link_to "Show this equipment", @equipment %> |
-  <%= link_to "Back to equipment", equipment_index_path %>
+<div class="card mb-2">
+  <div class="card-body">
+  <%= render "form", equipment: @equipment %>
+  <hr>
+  <%= link_to "Volver", equipment_index_path, class: "btn btn-outline-secondary" %>
+  </div>
+</div>
 </div>

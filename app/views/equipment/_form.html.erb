@@ -1,6 +1,6 @@
-<%= form_with(model: equipment) do |form| %>
+<%= form_with(model: equipment, class: "form") do |form| %>
   <% if equipment.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
 
       <ul>
@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :type, style: "display: block" %>
-    <%= form.text_field :type %>
+  <div class="mb-3">
+    <%= form.label :equipment_type, class: "form-label" %>
+    <%= form.select :equipment_type, options_for_select(["Aire acondicionado", "Calentador"]), {}, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :photo, class: "form-label" %>
+    <%= form.file_field :photo, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :photo, style: "display: block" %>
-    <%= form.text_field :photo %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Actualizar", class: "btn btn-success" %>
   </div>
 <% end %>
