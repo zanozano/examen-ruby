@@ -11,7 +11,7 @@ class ContactController < ActionController::Base
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to root_path, notice: 'Mensaje enviado correctamente.'
+      redirect_to root_path, flash: { success: 'Mensaje enviado correctamente.' }
     else
       render :new
     end

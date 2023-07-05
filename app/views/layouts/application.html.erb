@@ -39,12 +39,20 @@
   </div>
 </nav>
 
-      <%# Message %>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
-<div class="container mb-2">
+<div class="container mb-4">
+<%# Message %>
+  <% if flash[:success] %>
+    <div id="flash-message" class="alert alert-success" role="alert">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
   <%= yield %>
 </div>
+
+<script>
+  setTimeout(function() {
+    document.getElementById('flash-message').style.display = 'none';
+  }, 6000);
+</script>
 </body>
 </html>
