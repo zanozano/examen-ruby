@@ -1,13 +1,10 @@
 class Admin::UsersController < ApplicationController
-  before_action :authenticate_admin!
-
   def new
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
-    @user.admin = true  # Marca al nuevo usuario como administrador si así se desea
 
     if @user.save
       redirect_to root_path, notice: 'Usuario creado exitosamente.'
@@ -19,6 +16,6 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation).merge(admin: false)
   end
 end

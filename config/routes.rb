@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :equipment
   namespace :admin do
     get 'users/new'
     get 'users/create'

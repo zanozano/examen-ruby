@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+<div class="col-6 mx-auto">
+<h1 class="text-center fw-bold mb-4">Equipment</h1>
+
+<%= link_to "New equipment", new_equipment_path, class: "btn btn-success mb-2" %>
+<div id="equipment">
+  <% @equipment.each do |equipment| %>
+    <%= render equipment %>
+    <p>
+      <%= link_to "Show this equipment", equipment %>
+    </p>
+  <% end %>
+</div>
+
+<div>

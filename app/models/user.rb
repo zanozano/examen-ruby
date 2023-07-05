@@ -1,7 +1,6 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable, :lockable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
-  # Añade el atributo :admin
   def admin?
     admin
   end

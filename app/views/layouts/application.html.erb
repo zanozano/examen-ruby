@@ -27,14 +27,26 @@
           <a class="nav-link <%= 'active' if current_page?(contact_path) %>" href="/contact">Contact</a>
         </li>
       </ul>
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sign up</a>
-        </li>
-      </ul>
+        
+<ul class="navbar-nav ms-auto">
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <a class="nav-link <%= 'active' if current_page?(equipment_index_path) %>" href="<%= equipment_index_path %>">Equipment</a>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+    </li>
+  <% else %>
+    <li class="nav-item">
+      <a class="nav-link <%= 'active' if current_page?(new_user_session_path) %>" href="<%= new_user_session_path %>">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link <%= 'active' if current_page?(new_user_registration_path) %>" href="<%= new_user_registration_path %>">Sign up</a>
+    </li>
+  <% end %>
+</ul>
+
+
     </div>
   </div>
 </nav>

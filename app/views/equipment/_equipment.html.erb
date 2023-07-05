@@ -1,0 +1,9 @@
+<div id="<%= dom_id equipment %>" class="card">
+  <div class="card-body">
+    <h6 class="card-title">Type</h6>
+    <h4 class="fw-bold"><%= equipment.equipment_type %></h4>
+    <p class="card-text"><strong>Name:</strong> <%= equipment.name %></p>
+    <p class="card-text"><strong>Description:</strong> <%= equipment.description %></p>
+    <%= image_tag equipment.photo, class: "card-img-top equipment-photo" %>
+  </div>
+</div>
