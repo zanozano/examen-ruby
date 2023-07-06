@@ -22,7 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# my_training_app
 # examen-ruby
 # examen-ruby
 # examen-ruby
