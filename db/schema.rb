@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_05_175510) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_06_030610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,11 +21,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_175510) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "mantainer_id"
+    t.index ["mantainer_id"], name: "index_equipment_on_mantainer_id"
   end
 
   create_table "mantainers", force: :cascade do |t|
-    t.string "type_equipment"
-    t.string "type_support"
+    t.string "equipment_type"
+    t.string "support_type"
     t.string "name"
     t.string "city"
     t.string "material"
@@ -58,5 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_175510) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "equipment", "mantainers"
   add_foreign_key "mantainers", "equipment"
 end

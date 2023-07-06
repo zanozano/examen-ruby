@@ -2,12 +2,12 @@
   <div class="card-body">
     <p class="card-text">
       <strong>Type equipment:</strong>
-      <%= mantainer.type_equipment %>
+      <%= mantainer.equipment ? mantainer.equipment.name : "Pendiente" %>
     </p>
 
     <p class="card-text">
       <strong>Type support:</strong>
-      <%= mantainer.type_support %>
+      <%= mantainer.support_type %>
     </p>
 
     <p class="card-text">
@@ -25,11 +25,23 @@
       <%= mantainer.material %>
     </p>
 
- 
-    <% if mantainer.photo.present? %>
-      <%= image_tag mantainer.photo.url, class: "card-img-top" %>
-    <% else %>
-      <p>No image available</p>
+    <p class="card-text">
+      <strong>Modified by:</strong>
+      <%= mantainer.modified_by_email || "No disponible" %>
+    </p>
+
+<% if mantainer.photo.present? %>
+  <div class="d-flex justify-content-center align-items-center">
+    <%= image_tag mantainer.photo.url, class: "card-img-top mx-auto", style: "max-width: 200px; max-height: 200px;" %>
+  </div>
+<% else %>
+  <div class="d-flex justify-content-center align-items-center">
+    <%= image_tag "default.png", class: "card-img-top mx-auto", style: "max-width: 200px; max-height: 200px;" %>
+  </div>
+<% end %>
+<hr>
+    <% if action_name == "index" %>
+      <%= link_to "Mostrar", mantainer, class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

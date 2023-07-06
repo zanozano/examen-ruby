@@ -1,10 +1,11 @@
-<h1>Editing mantainer</h1>
+<div class="col-4 mx-auto">
+  <h1>Editing mantainer</h1>
 
-<%= render "form", mantainer: @mantainer %>
-
-<br>
-
-<div>
-  <%= link_to "Show this mantainer", @mantainer %> |
-  <%= link_to "Back to mantainers", mantainers_path %>
+  <div class="card mb-2">
+    <div class="card-body">
+      <%= render "form", mantainer: @mantainer %>
+      <hr>
+      <%= link_to "Volver", mantainers_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
 </div>

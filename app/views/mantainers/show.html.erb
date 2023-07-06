@@ -1,11 +1,16 @@
 <p style="color: green"><%= notice %></p>
-
+<div class="col-4 mx-auto">
 <%= render @mantainer %>
 
+<div class="d-flex justify-content-between">
+
 <div>
-<%= link_to "Edit this mantainer", edit_mantainer_path(@mantainer), class: "btn btn-primary" %> |
-<%= link_to "Back to mantainers", mantainers_path, class: "btn btn-secondary" %>
-
-<%= button_to "Destroy this mantainer", @mantainer, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
-
+<%= link_to "Volver", mantainers_path, class: "btn btn-outline-secondary" %>
+<%= link_to "Editar", edit_mantainer_path(@mantainer), class: "btn btn-primary" %> 
+</div>
+<% if current_user.admin == 'admin' %>
+  <%= button_to "Eliminar", @mantainer, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+<% end %>
+</div>
+</div>
 </div>

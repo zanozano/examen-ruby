@@ -11,21 +11,25 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
-    <%= form.label :type_equipment, class: "form-label" %>
-    <%= form.text_field :type_equipment, class: "form-control" %>
-  </div>
+<div class="mb-3">
+  <%= form.label :equipment_id, class: "form-label" %>
+  <% if mantainer.equipment.present? %>
+    <p><%= mantainer.equipment.name %></p>
+  <% else %>
+    <%= form.collection_select :equipment_id, Equipment.available, :id, :name, { prompt: "Seleccione un equipo" }, class: "form-control" %>
+  <% end %>
+</div>
 
- <div class="mb-3">
-  <%= form.label :type_support, class: "form-label" %>
-  <%= form.select :type_support, options_for_select(["Pendiente", "Selectivo", "Correctivo"], selected: mantainer.type_support), {}, class: "form-control" %>
+<div class="mb-3">
+  <%= form.label :name, class: "form-label" %>
+  <%= form.text_field :name, class: "form-control", placeholder: "Ingrese su nombre" %>
 </div>
 
 
-  <div class="mb-3">
-    <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control" %>
-  </div>
+ <div class="mb-3">
+  <%= form.label :support_type, class: "form-label" %>
+  <%= form.select :support_type, options_for_select(["Pendiente", "Selectivo", "Correctivo"], selected: mantainer.support_type), {}, class: "form-control" %>
+</div>
 
  <div class="mb-3">
   <%= form.label :city, class: "form-label" %>
@@ -43,10 +47,11 @@
     <%= form.file_field :photo, class: "form-control" %>
   </div>
   
-  <div class="mb-3">
-    <%= form.label :email, class: "form-label" %>
-    <%= form.text_field :modified_by_email, class: "form-control" %>
-  </div>
+<div class="mb-3" style="display: none;">
+  <%= form.label :email, class: "form-label" %>
+  <%= form.text_field :modified_by_email, class: "form-control", hidden: true %>
+</div>
+
 
   <div>
     <%= form.submit "Save", class: "btn btn-primary" %>

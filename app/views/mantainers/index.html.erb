@@ -1,14 +1,20 @@
+<div class="col-4 mx-auto">
 <p style="color: green"><%= notice %></p>
 
-<h1>Mantainers</h1>
+<h1 class="text-center fw-bold mb-4">Mantainers</h1>
+<%= link_to "New mantainer", new_mantainer_path, class: "btn btn-success mb-2"%>
 
 <div id="mantainers">
   <% @mantainers.each do |mantainer| %>
     <%= render mantainer %>
-    <p>
-      <%= link_to "Show this mantainer", mantainer %>
-    </p>
   <% end %>
+  <div>
+      <%= will_paginate @mantainers, class: "pagination justify-content-center" do |mantainer| %>
+        <%= mantainer.page_numbers class: "page-item" %>
+        <%= mantainer.previous_page class: "page-item" %>
+        <%= mantainer.next_page class: "page-item" %>
+      <% end %>
+    </div>
 </div>
 
-<%= link_to "New mantainer", new_mantainer_path %>
+</div>

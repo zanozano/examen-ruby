@@ -34,8 +34,8 @@ equipment_ids = Equipment.pluck(:id)
 
 10.times do
   mantainer = Mantainer.create!(
-    type_equipment: 'Pendiente',
-    type_support: 'Pendiente',
+    equipment_type: 'Pendiente',
+    support_type: 'Pendiente',
     name: 'Pendiente',
     city: 'Pendiente',
     material: 'Pendiente',

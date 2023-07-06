@@ -1,9 +1,15 @@
-<h1>New mantainer</h1>
+<div class="col-4 mx-auto">
+  <div class="card">
+    <div class="card-body">
+      <h1>New mantainer</h1>
 
-<%= render "form", mantainer: @mantainer %>
+      <%= render "form", mantainer: @mantainer %>
 
-<br>
+      <hr>
 
-<div>
-  <%= link_to "Back to mantainers", mantainers_path %>
+      <div>
+        <%= link_to "Volver", mantainers_path, class: "btn btn-outline-secondary" %>
+      </div>
+    </div>
+  </div>
 </div>

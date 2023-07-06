@@ -4,9 +4,8 @@ class MantainersController < ApplicationController
 
   # GET /mantainers or /mantainers.json
   def index
-    @mantainers = Mantainer.order(created_at: :desc)
+    @mantainers = Mantainer.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
-
 
   # GET /mantainers/1 or /mantainers/1.json
   def show
@@ -20,12 +19,14 @@ class MantainersController < ApplicationController
 
   # GET /mantainers/1/edit
   def edit
+     @mantainer.modified_by_email = current_user.email
   end
 
   # POST /mantainers or /mantainers.json
   def create
     @mantainer = Mantainer.new(mantainer_params)
-
+    @mantainer.modified_by_email = current_user.email # Asigna el correo electrónico del usuario actual
+    
     respond_to do |format|
       if @mantainer.save
         format.html { redirect_to mantainer_url(@mantainer), notice: "Mantainer was successfully created." }
@@ -39,6 +40,9 @@ class MantainersController < ApplicationController
 
   # PATCH/PUT /mantainers/1 or /mantainers/1.json
   def update
+    @mantainer = Mantainer.find(params[:id])
+    @mantainer.modified_by_email = current_user.email # Asigna el correo electrónico del usuario actual
+
     respond_to do |format|
       if @mantainer.update(mantainer_params)
         format.html { redirect_to mantainer_url(@mantainer), notice: "Mantainer was successfully updated." }
@@ -49,6 +53,7 @@ class MantainersController < ApplicationController
       end
     end
   end
+
 
   # DELETE /mantainers/1 or /mantainers/1.json
   def destroy
@@ -69,8 +74,9 @@ class MantainersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def mantainer_params
-    params.require(:mantainer).permit(:type_equipment, :type_support, :name, :city, :material)
-  end
+  params.require(:mantainer).permit(:equipment_type, :name, :city, :material, :photo, :equipment_id, :support_type, :modified_by_email)
+end
+
 
   # Load cities from CSV file
   def load_cities_from_csv
@@ -80,4 +86,6 @@ class MantainersController < ApplicationController
     end
     cities
   end
+
+  
 end
