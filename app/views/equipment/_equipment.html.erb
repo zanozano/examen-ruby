@@ -1,20 +1,19 @@
-<div id="<%= dom_id equipment %>" class="card mb-2">
+<div id="<%= dom_id equipment %>" class="item-container__item">
   <div class="card-body">
     <h6 class="card-title">Type</h6>
     <h4 class="fw-bold"><%= equipment.equipment_type %></h4>
     <p class="card-text"><strong>Name:</strong> <%= equipment.name %></p>
     <p class="card-text"><strong>Description:</strong> <%= equipment.description %></p>
-
-     <% if equipment.photo.present? %>
-     <div class="d-flex justify-content-center align-items-center">
-      <%= image_tag equipment.photo.url, class: "card-img-top",style: "max-width: 200px; max-height: 200px;" %>
-     </div>
-      <% else %>
+    <% if equipment.photo.present? %>
+      <div class="d-flex justify-content-center align-items-center">
+        <%= image_tag equipment.photo.url, class: "card-img-top",style: "max-width: 200px; max-height: 200px;" %>
+      </div>
+    <% else %>
       <div class="d-flex justify-content-center align-items-center">
         <%= image_tag "default.png", class: "card-img-top",style: "max-width: 200px; max-height: 200px;" %>
-        </div>
-      <% end %>
-<hr>
+      </div>
+    <% end %>
+    <hr>
     <% unless current_page?(equipment_path(equipment)) %>
       <%= link_to "Mostrar", equipment, class: "btn btn-primary" %>
     <% end %>

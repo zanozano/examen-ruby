@@ -4,7 +4,7 @@ class EquipmentController < ApplicationController
 
   # GET /equipment or /equipment.json
   def index
-    @equipment = Equipment.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
+    @equipment = Equipment.order(created_at: :desc).paginate(page: params[:page], per_page: 3)
   end
 
 

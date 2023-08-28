@@ -72,6 +72,12 @@ body {
         margin: 0;
         text-align: center;
     }
+
+    &__p {
+        font-size: .9rem;
+        font-weight: 400;
+        margin: 0;
+    }
 }
 
 @media screen and (max-width: 460px) {
@@ -91,5 +97,34 @@ body {
         &__h3 {
             font-size: 1rem;
         }
+    }
+}
+
+
+.item-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    &__item {
+        width: 33%;
+        background: #fafafa;
+        border-radius: 1rem;
+        padding: 1.8rem;
+        box-shadow: 20px 20px 60px #132f60,
+            -20px -20px 60px #0b2655;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .item-container {
+        display: flex;
+        flex-direction: column;
+
+        &__item {
+            width: 100%;
+        }
+
+
     }
 }
