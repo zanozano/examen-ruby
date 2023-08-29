@@ -33,12 +33,15 @@ end
 equipment_ids = Equipment.pluck(:id)
 
 10.times do
+  equipment_id = equipment_ids.sample
+  puts "Creating Maintainer with Equipment ID: #{equipment_id}"
   maintainer = Maintainer.create!(
     equipment_type: 'Pendiente',
     support_type: 'Pendiente',
     name: 'Pendiente',
     city: 'Pendiente',
     material: 'Pendiente',
-    equipment_id: equipment_ids.sample
+    equipment_id: equipment_id
   )
 end
+
