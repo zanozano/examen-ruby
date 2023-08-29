@@ -1,18 +1,28 @@
 <div id="<%= dom_id equipment %>" class="item-container__item">
-  <p class="card-text"><strong>Created At:</strong> <%= equipment.created_at.strftime('%B %e, %Y %l:%M %p') %></p>
+  <h6 class="item-container__h6">
+    <%= equipment.created_at.strftime('%B %e, %Y %l:%M %p') %>
+  </h6>
+
   <h6 class="item-container__h6">Type</h6>
-  <h4 class="fw-bold"><%= equipment.equipment_type %></h4>
-  <p class="card-text"><strong>Name:</strong> <%= equipment.name %></p>
-  <p class="card-text"><strong>Description:</strong> <%= equipment.description %></p>
+  <h4 class="fw-bold">
+    <% if equipment.equipment_type == "Calentador" %>
+      <%= equipment.equipment_type %>1
+    <% elsif equipment.equipment_type == "Aire acondicionado" %>
+      <%= equipment.equipment_type %>2
+    <% else %>
+      <%= equipment.equipment_type %>
+    <% end %>
+  </h4>
+  <%= equipment.name %>
+  <p>Description</p>
+  <%= equipment.description %>
   <% if equipment.photo.present? %>
-    <div class="d-flex justify-content-center align-items-center">
+    <div class="item-container__block-img">
       <%= image_tag equipment.photo.url, class: "card-img-top",style: "max-width: 200px; max-height: 200px;" %>
     </div>
   <% else %>
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="item-container__block-img">
-        <%= image_tag "default.png", class: "card-img-top",style: "max-width: 200px; max-height: 200px;" %>
-      </div>
+    <div class="item-container__block-img">
+      <%= image_tag "default.png", class: "card-img-top",style: "max-width: 200px; max-height: 200px;" %>
     </div>
   <% end %>
   <% unless current_page?(equipment_path(equipment)) %>

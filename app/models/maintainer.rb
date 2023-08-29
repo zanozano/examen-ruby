@@ -1,4 +1,4 @@
-class Mantainer < ApplicationRecord
+class Maintainer < ApplicationRecord
     belongs_to :equipment
     validates :equipment, presence: true
     mount_uploader :photo, PhotoUploader

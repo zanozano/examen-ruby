@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :mantainers
+  resources :maintainers
   resources :equipment
   namespace :admin do
     get 'users/new'

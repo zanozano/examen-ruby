@@ -33,7 +33,7 @@ end
 equipment_ids = Equipment.pluck(:id)
 
 10.times do
-  mantainer = Mantainer.create!(
+  maintainer = Maintainer.create!(
     equipment_type: 'Pendiente',
     support_type: 'Pendiente',
     name: 'Pendiente',

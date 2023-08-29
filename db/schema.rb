@@ -49,11 +49,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_121916) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "mantainer_id"
-    t.index ["mantainer_id"], name: "index_equipment_on_mantainer_id"
+    t.bigint "maintainer_id"
+    t.index ["maintainer_id"], name: "index_equipment_on_maintainer_id"
   end
 
-  create_table "mantainers", force: :cascade do |t|
+  create_table "maintainers", force: :cascade do |t|
     t.string "equipment_type"
     t.string "support_type"
     t.string "name"
@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_121916) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "equipment_id", null: false
-    t.index ["equipment_id"], name: "index_mantainers_on_equipment_id"
+    t.index ["equipment_id"], name: "index_maintainers_on_equipment_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -90,6 +90,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_121916) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "equipment", "mantainers"
-  add_foreign_key "mantainers", "equipment"
+  add_foreign_key "equipment", "maintainers"
+  add_foreign_key "maintainers", "equipment"
 end
