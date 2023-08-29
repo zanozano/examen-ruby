@@ -29,12 +29,7 @@
       <% end %>
     </div>
     <%#  %>
-    <div>
-      <%= will_paginate @equipment, class: "pagination justify-content-center" do |paginator| %>
-        <%= paginator.page_numbers class: "page-item" %>
-        <%= paginator.previous_page class: "page-item" %>
-        <%= paginator.next_page class: "page-item" %>
-      <% end %>
-    </div>
+    <%= will_paginate @equipment, class: "container-pagination" do |paginator| %>
+    <% end %>
   </div>
   <div>

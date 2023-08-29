@@ -1,22 +1,22 @@
-    <div class="col-6 mx-auto">
-      <div class="card">
-        <h3 class="card-header">Contactanos</h3>
-        <div class="card-body">
-          <%= form_with(model: @message, url: contact_create_path, class: 'form') do |form| %>
-            <div class="mb-3">
-              <%= form.label :nombre, class: 'form-label' %>
-              <%= form.text_field :nombre, name: 'message[nombre]', class: 'form-control', placeholder: 'Ingresa nombre', required: true %>
-            </div>
-            <div class="mb-3">
-              <%= form.label :email, class: 'form-label' %>
-              <%= form.email_field :email, name: 'message[email]', class: 'form-control', placeholder: 'Ingresa email', required: true %>
-            </div>
-            <div class="mb-3">
-              <%= form.label :mensaje, class: 'form-label' %>
-              <%= form.text_area :mensaje, name: 'message[mensaje]', class: 'form-control', rows: 5, placeholder: 'Ingresa un mensaje', required: true %>
-            </div>
-            <%= form.submit 'Enviar', class: 'btn btn-primary' %>
-          <% end %>
-        </div>
+<div class="container-contact col-md-6">
+  <div class="container-contact__card">
+    <h2 class="container-contact__h2">Contactanos</h2>
+    <%#  %>
+    <%= form_with(model: @message, url: contact_create_path, class: 'form') do |form| %>
+      <div class="mb-3">
+        <%= form.label :nombre, class: 'form-label' %>
+        <%= form.text_field :nombre, name: 'message[nombre]', class: 'form-control', placeholder: 'Ingresa nombre', required: true %>
       </div>
-    </div>
+      <div class="mb-3">
+        <%= form.label :email, class: 'form-label' %>
+        <%= form.email_field :email, name: 'message[email]', class: 'form-control', placeholder: 'Ingresa email', required: true %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :mensaje, class: 'form-label' %>
+        <%= form.text_area :mensaje, name: 'message[mensaje]', class: 'form-control', rows: 5, placeholder: 'Ingresa un mensaje', required: true %>
+      </div>
+      <%= form.submit 'Enviar', class: 'btn btn-primary' %>
+    <% end %>
+    <%#  %>
+  </div>
+</div>

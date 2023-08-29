@@ -1,7 +1,7 @@
-<p style="color: green"><%= notice %></p>
-<div class="col-4 mx-auto">
-  <%= render @equipment %>
-  <div>
+<div class="container">
+
+  <div class="header">
+    <p style="color: green"><%= notice %></p>
     <div class="d-flex justify-content-between">
       <div>
         <%= link_to "Volver", equipment_index_path, class: "btn btn-outline-secondary" %>
@@ -11,3 +11,8 @@
         <%= button_to "Eliminar", @equipment, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
       <% end %>
     </div>
+  </div>
+
+  <%= render @equipment %>
+
+</div>
