@@ -13,14 +13,22 @@
       });
     </script>
   <% end %>
-  <h1 class="text-center fw-bold mb-4">Equipment</h1>
-  <%= link_to "New equipment", new_equipment_path, class: "btn btn-success mb-2" %>
+  <div class="header">
+    <h1 class="header__h1">Equipment</h1>
+    <%= link_to new_equipment_path, class: "button success" do %>
+      New Equipment
+      <%= image_tag "new-icon.svg", alt: "New Icon", class: "button__icon" %>
+    <% end %>
+  </div>
+  <%#  %>
   <div id="equipment">
+    <%#  %>
     <div class="item-container">
       <% @equipment.each do |equipment| %>
         <%= render equipment %>
       <% end %>
     </div>
+    <%#  %>
     <div>
       <%= will_paginate @equipment, class: "pagination justify-content-center" do |paginator| %>
         <%= paginator.page_numbers class: "page-item" %>

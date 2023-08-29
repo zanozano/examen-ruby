@@ -19,6 +19,7 @@
 
 :root {
     --navbar: 56px;
+    --border-radius: .4rem;
 }
 
 body {
@@ -32,17 +33,18 @@ body {
     justify-content: center;
     min-height: 100vh;
     padding-bottom: 1rem;
-    padding-top: calc(var(--navbar) + 1rem);
+    padding-top: 1rem;
 }
 
 .container {
 
     &__card {
         background: #fafafa;
-        border-radius: 1rem;
+        border-radius: var(--border-radius);
         padding: 3rem;
-        box-shadow: 20px 20px 60px #132f60,
-            -20px -20px 60px #0b2655;
+        padding: 1.8rem;
+        box-shadow: 10px 10px 20px #132f60,
+            -10px -10px 20px #0b2655;
     }
 
     &__img {
@@ -74,7 +76,7 @@ body {
     }
 
     &__p {
-        font-size: .9rem;
+        font-size: 1rem;
         font-weight: 400;
         margin: 0;
     }
@@ -97,6 +99,10 @@ body {
         &__h3 {
             font-size: 1rem;
         }
+
+        &__p {
+            font-size: .9rem;
+        }
     }
 }
 
@@ -109,10 +115,8 @@ body {
     &__item {
         width: 33%;
         background: #fafafa;
-        border-radius: 1rem;
+        border-radius: var(--border-radius);
         padding: 1.8rem;
-        box-shadow: 20px 20px 60px #132f60,
-            -20px -20px 60px #0b2655;
     }
 }
 
@@ -127,4 +131,46 @@ body {
 
 
     }
+}
+
+.header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    &__h1 {
+        color: #fafafa;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+}
+
+
+.success {
+    background-color: green;
+    color: #fafafa;
+
+    &:hover,
+    :active {
+        color: #fafafa;
+    }
+}
+
+.button {
+    align-items: center;
+    border-radius: var(--border-radius);
+    display: flex;
+    gap: .8rem;
+    justify-content: center;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    width: fit-content;
+    z-index: 1000 !important;
+
+    &__icon {
+        height: 18px;
+        width: auto;
+    }
+
 }
