@@ -104,6 +104,7 @@ body {
         font-weight: 400;
         margin: 0;
     }
+
 }
 
 @media screen and (max-width: 460px) {
@@ -127,6 +128,7 @@ body {
         &__p {
             font-size: .9rem;
         }
+
     }
 }
 
@@ -141,6 +143,14 @@ body {
         background: var(--background-card);
         border-radius: var(--border-radius);
         padding: 1.8rem;
+    }
+
+    &__item--only {
+        width: 100%;
+        background: var(--background-card);
+        border-radius: var(--border-radius);
+        padding: 1.8rem;
+
     }
 
     &__h6 {
@@ -183,6 +193,16 @@ body {
         font-size: 2rem;
         font-weight: 600;
         margin: 0;
+    }
+
+    &__left {
+        display: flex;
+        gap: .5rem;
+    }
+
+    &__right {
+        display: flex;
+        gap: .5rem;
     }
 }
 

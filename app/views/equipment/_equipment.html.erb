@@ -1,4 +1,4 @@
-<div id="<%= dom_id equipment %>" class="item-container__item">
+<div id="<%= dom_id equipment %>" class="<%= current_page?(equipment_path(equipment)) ? 'item-container__item--only' : 'item-container__item' %>">
   <h6 class="item-container__h6">
     <%= equipment.created_at.strftime('%B %e, %Y %l:%M %p') %>
   </h6>
