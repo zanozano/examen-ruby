@@ -1,10 +1,36 @@
-# Full Clima App
+# Air Conditioning Control Hub (Full Clima App)
 
 ![Full Clima App](./app/assets/images/brand.svg)
 
 ## Description
 
-The Air Conditioning Control Hub (Full Clima App) is a sophisticated Ruby-based application designed to streamline and optimize the management of air conditioning units in various environments. This application utilizes SCSS with the BEM methodology to enhance scalability and code style readability. It also integrates PostgreSQL as its database to manage equipment and maintenance tables. Additionally, it features user authentication to access critical information.
+The Air Conditioning Control Hub, also known as the Full Clima App, is a robust Ruby-based application designed to revolutionize the management of air conditioning units across various settings. This application leverages SCSS with the BEM methodology to improve scalability and enhance the readability of the style code. It seamlessly integrates PostgreSQL as its database to efficiently oversee equipment and maintenance records. Moreover, it offers a comprehensive user authentication system to ensure secure access to crucial information.
+
+## Key Features and Gems
+
+### Key Features
+
+- **Inventory Management**: The application serves as an MVP (Minimum Viable Product) for a company specializing in air conditioning inventory control. It empowers personnel to effortlessly track the stock of air conditioning units and identify those in need of repair.
+
+- **User Roles**: The Air Conditioning Control Hub incorporates role-based access control, distinguishing between administrators, technicians, and regular users. Each role has access to specific views and functionalities tailored to their responsibilities.
+
+### Gems Utilized:
+
+- **Bootstrap**: The application benefits from the Bootstrap gem to create a user-friendly and responsive interface, ensuring a seamless user experience.
+
+- **jQuery-Rails**: jQuery-Rails aids in handling dynamic aspects of the application, making it more interactive and efficient.
+
+- **Devise**: Devise is utilized for user authentication, providing a secure login system with customizable permissions and access levels.
+
+- **Faker**: Faker simplifies the generation of fake data for testing and development purposes, facilitating the creation of realistic equipment and maintenance records.
+
+- **Will Paginate**: Will Paginate is employed to implement pagination for extensive lists of equipment and maintenance records, enhancing the application's usability.
+
+- **CarrierWave**: CarrierWave is used for handling file uploads, particularly for attaching images or documents to equipment profiles.
+
+The Air Conditioning Control Hub represents a crucial tool for air conditioning inventory management, catering to the unique needs of administrators, technicians, and general users. Its feature-rich interface and robust database integration ensure efficient tracking and maintenance of air conditioning units, contributing to enhanced operational efficiency.
+
+Feel free to explore the application and experience its capabilities firsthand.
 
 ## Table of Contents
 
