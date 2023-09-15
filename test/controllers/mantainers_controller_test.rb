@@ -2,7 +2,7 @@ require "test_helper"
 
 class MantainersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @mantainer = mantainers(:one)
+    @maintainer = maintainers(:one)
   end
 
   test "should get index" do
@@ -15,32 +15,32 @@ class MantainersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create mantainer" do
+  test "should create maintainer" do
     assert_difference("Mantainer.count") do
-      post mantainers_url, params: { mantainer: { city: @mantainer.city, material: @mantainer.material, name: @mantainer.name, type_equipment: @mantainer.type_equipment, type_support: @mantainer.type_support } }
+      post mantainers_url, params: { maintainer: { city: @maintainer.city, material: @maintainer.material, name: @maintainer.name, type_equipment: @maintainer.type_equipment, type_support: @maintainer.type_support } }
     end
 
     assert_redirected_to mantainer_url(Mantainer.last)
   end
 
-  test "should show mantainer" do
-    get mantainer_url(@mantainer)
+  test "should show maintainer" do
+    get mantainer_url(@maintainer)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_mantainer_url(@mantainer)
+    get edit_mantainer_url(@maintainer)
     assert_response :success
   end
 
-  test "should update mantainer" do
-    patch mantainer_url(@mantainer), params: { mantainer: { city: @mantainer.city, material: @mantainer.material, name: @mantainer.name, type_equipment: @mantainer.type_equipment, type_support: @mantainer.type_support } }
-    assert_redirected_to mantainer_url(@mantainer)
+  test "should update maintainer" do
+    patch mantainer_url(@maintainer), params: { maintainer: { city: @maintainer.city, material: @maintainer.material, name: @maintainer.name, type_equipment: @maintainer.type_equipment, type_support: @maintainer.type_support } }
+    assert_redirected_to mantainer_url(@maintainer)
   end
 
-  test "should destroy mantainer" do
+  test "should destroy maintainer" do
     assert_difference("Mantainer.count", -1) do
-      delete mantainer_url(@mantainer)
+      delete mantainer_url(@maintainer)
     end
 
     assert_redirected_to mantainers_url

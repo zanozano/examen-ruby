@@ -78,3 +78,10 @@ gem 'devise'
 gem 'faker'
 gem 'will_paginate'
 gem 'carrierwave'
+
+
+group :development do
+  gem 'guard-livereload', require: false
+end
+
+gem 'htmlbeautifier'

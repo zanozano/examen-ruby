@@ -1,35 +1,35 @@
-<div class="col-4 mx-auto">
-<% if notice.present? %>
-  <div id="success-alert" class="alert alert-success" role="alert">
-    <%= notice %>
-  </div>
+<div class="container">
+  <% if notice.present? %>
+    <div id="success-alert" class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var successAlert = document.getElementById('success-alert');
 
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var successAlert = document.getElementById('success-alert');
-
-      setTimeout(function() {
-        successAlert.style.display = 'none';
-      }, 6000);
-    });
-  </script>
-<% end %>
-
-<h1 class="text-center fw-bold mb-4">Equipment</h1>
-
-<%= link_to "New equipment", new_equipment_path, class: "btn btn-success mb-2" %>
-<div id="equipment">
-  <% @equipment.each do |equipment| %>
-    <%= render equipment %>
+        setTimeout(function() {
+          successAlert.style.display = 'none';
+        }, 6000);
+      });
+    </script>
   <% end %>
-    <div>
-      <%= will_paginate @equipment, class: "pagination justify-content-center" do |paginator| %>
-        <%= paginator.page_numbers class: "page-item" %>
-        <%= paginator.previous_page class: "page-item" %>
-        <%= paginator.next_page class: "page-item" %>
+  <div class="header">
+    <h1 class="header__h1">Equipment</h1>
+    <%= link_to new_equipment_path, class: "button success" do %>
+      New Equipment
+      <%= image_tag "new-icon.svg", alt: "New Icon", class: "button__icon" %>
+    <% end %>
+  </div>
+  <%#  %>
+  <div id="equipment">
+    <%#  %>
+    <div class="item-container">
+      <% @equipment.each do |equipment| %>
+        <%= render equipment %>
       <% end %>
     </div>
-</div>
-
-<div>
+    <%#  %>
+    <%= will_paginate @equipment, class: "container-pagination" do |paginator| %>
+    <% end %>
+  </div>
+  <div>

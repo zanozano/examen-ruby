@@ -1,6 +1,6 @@
-class CreateMantainers < ActiveRecord::Migration[7.0]
+class CreateMaintainers < ActiveRecord::Migration[7.0]
   def change
-    create_table :mantainers do |t|
+    create_table :maintainers do |t|
       t.string :equipment_type
       t.string :support_type
       t.string :name
@@ -8,8 +8,8 @@ class CreateMantainers < ActiveRecord::Migration[7.0]
       t.string :material
       t.string :photo
       t.string :modified_by_email
-
       t.timestamps
+      
     end
   end
 end

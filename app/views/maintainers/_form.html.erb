@@ -1,0 +1,57 @@
+<%= form_with(model: maintainer) do |form| %>
+  <% if maintainer.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(maintainer.errors.count, "error") %> prohibited this maintainer from being saved:</h2>
+
+      <ul>
+        <% maintainer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :equipment_id, class: "form-label" %>
+    <% if maintainer.equipment.present? %>
+      <p><%= maintainer.equipment.name %></p>
+    <% else %>
+      <%= form.collection_select :equipment_id, Equipment.available, :id, :name, { prompt: "Seleccione un equipo" }, class: "form-control" %>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Ingrese su nombre" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :support_type, class: "form-label" %>
+    <%= form.select :support_type, options_for_select(["Pendiente", "Selectivo", "Correctivo"], selected: maintainer.support_type), {}, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :city, class: "form-label" %>
+    <%= form.select :city, ['Santiago de Chile', 'Temuco', 'Antofagasta', 'Valparaíso', 'Concepción'], { prompt: 'Seleccione una ciudad' }, class: "form-control" %>
+
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :material, class: "form-label" %>
+    <%= form.select :material, ['Filtros de aire', 'Aceite lubricante', 'Termostato', 'Bobinas de condensador', 'Refrigerante', 'Condensador', 'Ventilador', 'Válvulas de expansión', 'Bomba de calor', 'Sensores de temperatura'], { prompt: 'Seleccione un material' }, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :photo, class: "form-label" %>
+    <%= form.file_field :photo, class: "form-control" %>
+  </div>
+
+  <div class="mb-3" style="display: none;">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.text_field :modified_by_email, class: "form-control", hidden: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>

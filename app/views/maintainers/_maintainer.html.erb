@@ -1,0 +1,47 @@
+<div id="<%= dom_id maintainer %>" class="card mb-2">
+  <div class="card-body">
+    <p class="card-text">
+      <strong>Type equipment:</strong>
+      <%= maintainer.equipment ? maintainer.equipment.name : "Pendiente" %>
+    </p>
+
+    <p class="card-text">
+      <strong>Type support:</strong>
+      <%= maintainer.support_type %>
+    </p>
+
+    <p class="card-text">
+      <strong>Name:</strong>
+      <%= maintainer.name %>
+    </p>
+
+    <p class="card-text">
+      <strong>City:</strong>
+      <%= maintainer.city %>
+    </p>
+
+    <p class="card-text">
+      <strong>Material:</strong>
+      <%= maintainer.material %>
+    </p>
+
+    <p class="card-text">
+      <strong>Modified by:</strong>
+      <%= maintainer.modified_by_email || "No disponible" %>
+    </p>
+
+    <% if maintainer.photo.present? %>
+      <div class="d-flex justify-content-center align-items-center">
+        <%= image_tag maintainer.photo.url, class: "card-img-top mx-auto", style: "max-width: 200px; max-height: 200px;" %>
+      </div>
+    <% else %>
+      <div class="d-flex justify-content-center align-items-center">
+        <%= image_tag "default.png", class: "card-img-top mx-auto", style: "max-width: 200px; max-height: 200px;" %>
+      </div>
+    <% end %>
+    <hr>
+    <% if action_name == "index" %>
+      <%= link_to "Mostrar", maintainer, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
