@@ -4,6 +4,6 @@ class Equipment < ApplicationRecord
     has_one_attached :photo
 
      def self.available
-      where(maintainer_id: nil) # O cualquier condición que determines que un equipo está disponible
+      where(maintainer_id: nil)
     end
 end
