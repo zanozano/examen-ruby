@@ -3,18 +3,10 @@
     <div id="success-alert" class="alert alert-success" role="alert">
       <%= notice %>
     </div>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var successAlert = document.getElementById('success-alert');
-
-        setTimeout(function() {
-          successAlert.style.display = 'none';
-        }, 6000);
-      });
-    </script>
   <% end %>
+
   <div class="header">
-    <h1 class="header__h1">Equipment</h1>
+    <h2 class="header__h2">Equipment List</h2>
     <%= link_to new_equipment_path, class: "button success" do %>
       New Equipment
       <%= image_tag "new-icon.svg", alt: "New Icon", class: "button__icon" %>
@@ -32,4 +24,4 @@
     <%= will_paginate @equipment, class: "container-pagination" do |paginator| %>
     <% end %>
   </div>
-  <div>
+</div>

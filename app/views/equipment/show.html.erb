@@ -1,13 +1,18 @@
-<div class="container">
+<div class="container-only col-md-4">
+  <% if notice.present? %>
+    <div id="success-alert" class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
   <div class="header">
     <div class="header__left">
-      <%= link_to "Volver", equipment_index_path, class: "btn btn-outline-secondary" %>
-      <p style="color: green"><%= notice %></p>
+      <%= link_to "Back", equipment_index_path, class: "btn btn-outline-secondary" %>
     </div>
     <div class="header__right">
-      <%= link_to "Editar", edit_equipment_path(@equipment), class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_equipment_path(@equipment), class: "btn btn-primary" %>
       <% if current_user&.admin == 'admin' %>
-        <%= button_to "Eliminar", @equipment, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+        <%= button_to "Delete", @equipment, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
       <% end %>
     </div>
   </div>

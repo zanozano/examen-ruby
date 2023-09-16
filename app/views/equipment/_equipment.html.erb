@@ -1,32 +1,48 @@
 <div id="<%= dom_id equipment %>" class="<%= current_page?(equipment_path(equipment)) ? 'item-container__item--only' : 'item-container__item' %>">
-  <h6 class="item-container__h6">
-    <%= equipment.created_at.strftime('%B %e, %Y %l:%M %p') %>
-  </h6>
 
-  <h6 class="item-container__h6">Type</h6>
-  <h4 class="fw-bold">
-    <% if equipment.equipment_type == "Calentador" %>
-      <%= equipment.equipment_type %>1
-    <% elsif equipment.equipment_type == "Aire acondicionado" %>
-      <%= equipment.equipment_type %>2
+  <%# top  %>
+  <div class="item-section">
+
+    <h6 class="item-section__h6">
+      <%= equipment.created_at.strftime('%B %e, %Y %l:%M %p') %>
+    </h6>
+
+    <span>
+      <h6 class="item-section__h6">Type</h6>
+      <span>
+        <%= equipment.equipment_type %>
+      </span>
+      <span>
+        <%= equipment.name %>
+      </span>
+    </span>
+
+    <h6 class="item-section__h6">
+      Description
+    </h6>
+    <p class="item-section__p">
+      <%= equipment.description %>
+    </p>
+
+  </div>
+
+  <%# bottom %>
+  <div class="item-section">
+
+    <% if equipment.photo.present? %>
+      <div class="item-section__block-img">
+        <%= image_tag equipment.photo.url, class: "card-img-top",style: "max-width: 200px; max-height: 200px;" %>
+      </div>
     <% else %>
-      <%= equipment.equipment_type %>
+      <div class="item-section__block-img">
+        <%= image_tag "default.png", class: "card-img-top",style: "max-width: 200px; max-height: 200px;" %>
+      </div>
     <% end %>
-  </h4>
-  <%= equipment.name %>
-  <p>Description</p>
-  <%= equipment.description %>
-  <% if equipment.photo.present? %>
-    <div class="item-container__block-img">
-      <%= image_tag equipment.photo.url, class: "card-img-top",style: "max-width: 200px; max-height: 200px;" %>
-    </div>
-  <% else %>
-    <div class="item-container__block-img">
-      <%= image_tag "default.png", class: "card-img-top",style: "max-width: 200px; max-height: 200px;" %>
-    </div>
-  <% end %>
-  <% unless current_page?(equipment_path(equipment)) %>
-    <%= link_to "Mostrar", equipment, class: "btn btn-primary" %>
-  <% end %>
+
+    <% unless current_page?(equipment_path(equipment)) %>
+      <%= link_to "Show", equipment, class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
 
 </div>

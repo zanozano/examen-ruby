@@ -1,15 +1,9 @@
-<div class="col-4 mx-auto">
-  <div class="card">
-    <div class="card-body">
-      <h1>New equipment</h1>
+<div class="container-registration col-md-4">
+  <div class="container-registration__card">
 
-      <%= render "form", equipment: @equipment %>
+    <h2 class="container-registration__h2">Create new equipment</h2>
 
-      <hr>
+    <%= render "form", equipment: @equipment %>
 
-      <div>
-        <%= link_to "Volver", equipment_index_path, class: "btn btn-outline-secondary" %>
-      </div>
-    </div>
   </div>
 </div>

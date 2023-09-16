@@ -107,6 +107,12 @@ body {
 
 }
 
+//special
+.container-only {
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (max-width: 460px) {
     .container {
         &__card {
@@ -136,13 +142,16 @@ body {
 .item-container {
     display: flex;
     gap: 1rem;
-    margin-bottom: 1rem;
 
     &__item {
         width: 33.3%;
         background: var(--background-card);
         border-radius: var(--border-radius);
         padding: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
     }
 
     &__item--only {
@@ -150,11 +159,34 @@ body {
         background: var(--background-card);
         border-radius: var(--border-radius);
         padding: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
 
+    }
+
+
+
+}
+
+//card information
+.item-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    &__h5 {
+        font-size: 0.6rem;
     }
 
     &__h6 {
         font-size: .9rem;
+    }
+
+
+    &__p {
+        font-size: 0.9rem;
     }
 
     &__block-img {
@@ -163,15 +195,12 @@ body {
         border-radius: var(--border-radius);
         display: flex;
         justify-content: center;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
         padding: 1rem;
         width: 100%;
     }
-
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 991px) {
     .item-container {
         display: flex;
         flex-direction: column;
@@ -182,21 +211,29 @@ body {
     }
 }
 
+//header btn
 .header {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    background: var(--background-card);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    box-shadow: 10px 10px 20px #132f60,
+        -10px -10px 20px #0b2655;
 
-    &__h1 {
-        color: #fafafa;
+    &__h2 {
+        color: #0b2655;
         font-size: 2rem;
         font-weight: 600;
         margin: 0;
+        margin-left: 0.5rem;
     }
 
     &__left {
         display: flex;
+        width: max-content;
         gap: .5rem;
     }
 
@@ -235,7 +272,7 @@ body {
 
 }
 
-.container-contact {
+.container-registration {
     &__card {
         background: var(--background-card);
         border-radius: var(--border-radius);
@@ -251,6 +288,10 @@ body {
         margin-bottom: 1rem;
         text-align: center;
     }
+
+    &__actions {
+        margin-top: 1.5rem;
+    }
 }
 
 .container-pagination {
@@ -260,6 +301,7 @@ body {
     padding: .5rem;
     gap: .8rem;
     text-decoration: none;
+    margin-top: 1rem;
 
     & a {
 

@@ -1,5 +1,5 @@
 {
-  "name": "examen_ruby_clima_2023",
+  "name": "fullclima-app",
   "version": "2.0.0",
   "description": "The Air Conditioning Control Hub is a sophisticated Ruby-based application designed to streamline and optimize the management of air conditioning units in various environments. This app offers a comprehensive solution for monitoring, controlling, and maintaining air conditioning systems, ensuring optimal comfort and energy efficiency.",
   "main": "config.ru",

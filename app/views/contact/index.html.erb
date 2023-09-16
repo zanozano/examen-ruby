@@ -1,21 +1,21 @@
-<div class="container-contact col-md-6">
-  <div class="container-contact__card">
-    <h2 class="container-contact__h2">Contactanos</h2>
+<div class="container-registration col-md-6">
+  <div class="container-registration__card">
+    <h2 class="container-registration__h2">Contact us</h2>
     <%#  %>
     <%= form_with(model: @message, url: contact_create_path, class: 'form') do |form| %>
       <div class="mb-3">
-        <%= form.label :nombre, class: 'form-label' %>
-        <%= form.text_field :nombre, name: 'message[nombre]', class: 'form-control', placeholder: 'Ingresa nombre', required: true %>
+        <%= form.label :name, class: 'form-label' %>
+        <%= form.text_field :name, name: 'message[name]', class: 'form-control', placeholder: 'Enter your name', required: true %>
       </div>
       <div class="mb-3">
         <%= form.label :email, class: 'form-label' %>
-        <%= form.email_field :email, name: 'message[email]', class: 'form-control', placeholder: 'Ingresa email', required: true %>
+        <%= form.email_field :email, name: 'message[email]', class: 'form-control', placeholder: 'Enter your email', required: true %>
       </div>
       <div class="mb-3">
-        <%= form.label :mensaje, class: 'form-label' %>
-        <%= form.text_area :mensaje, name: 'message[mensaje]', class: 'form-control', rows: 5, placeholder: 'Ingresa un mensaje', required: true %>
+        <%= form.label :message, class: 'form-label' %>
+        <%= form.text_area :message, name: 'message[message]', class: 'form-control', rows: 5, placeholder: 'Enter your message', required: true %>
       </div>
-      <%= form.submit 'Enviar', class: 'btn btn-primary' %>
+      <%= form.submit 'Send', class: 'btn btn-primary' %>
     <% end %>
     <%#  %>
   </div>

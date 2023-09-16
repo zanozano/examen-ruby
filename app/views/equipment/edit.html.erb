@@ -1,11 +1,8 @@
-<div class="col-4 mx-auto">
-<h1>Editing equipment</h1>
+<div class="container-registration col-md-4">
+  <div class="container-registration__card">
+    <h2 class="container-registration__h2">Edit equipment</h2>
 
-<div class="card mb-2">
-  <div class="card-body">
-  <%= render "form", equipment: @equipment %>
-  <hr>
-  <%= link_to "Volver", equipment_index_path, class: "btn btn-outline-secondary" %>
+    <%= render "form", equipment: @equipment %>
+
   </div>
-</div>
 </div>
