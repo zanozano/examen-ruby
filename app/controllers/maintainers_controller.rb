@@ -4,7 +4,7 @@ class MaintainersController < ApplicationController
 
   # GET /maintainers or /maintainers.json
   def index
-    @maintainers = Maintainer.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
+    @maintainers = Maintainer.order(updated_at: :desc).paginate(page: params[:page], per_page: 3)
   end
 
   # GET /maintainers/1 or /maintainers/1.json
@@ -25,7 +25,7 @@ class MaintainersController < ApplicationController
   # POST /maintainers or /maintainers.json
   def create
     @maintainer = Maintainer.new(maintainer_params)
-    @maintainer.modified_by_email = current_user.email # Asigna el correo electrónico del usuario actual
+    @maintainer.modified_by_email = current_user.email
     
     respond_to do |format|
       if @maintainer.save
@@ -41,12 +41,17 @@ class MaintainersController < ApplicationController
   # PATCH/PUT /maintainers/1 or /maintainers/1.json
   def update
     @maintainer = Maintainer.find(params[:id])
-    @maintainer.modified_by_email = current_user.email # Asigna el correo electrónico del usuario actual
+    @maintainer.modified_by_email = current_user.email
 
     respond_to do |format|
       if @maintainer.update(maintainer_params)
-        format.html { redirect_to maintainer_url(@maintainer), notice: "Maintainer was successfully updated." }
-        format.json { render :show, status: :ok, location: @maintainer }
+        if @maintainer.equipment.update(photo: @maintainer.photo)
+          format.html { redirect_to maintainer_url(@maintainer), notice: "Maintainer was successfully updated." }
+          format.json { render :show, status: :ok, location: @maintainer }
+        else
+          format.html { redirect_to maintainer_url(@maintainer), alert: "Failed to update Equipment photo." }
+          format.json { render json: @maintainer.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @maintainer.errors, status: :unprocessable_entity }
@@ -56,19 +61,25 @@ class MaintainersController < ApplicationController
 
 
   # DELETE /maintainers/1 or /maintainers/1.json
-    def destroy
-    @equipment = Equipment.find(params[:id])
+  def destroy
+    @maintainer = Maintainer.find(params[:id])
+    @equipment = @maintainer.equipment
 
-    # Buscar y eliminar registros en "maintainers" que hacen referencia a este equipo
-    Maintainer.where(equipment_id: @equipment.id).destroy_all
+    if @maintainer.destroy
+      # Eliminar registros relacionados en "Maintainers"
+      Maintainer.where(equipment_id: @equipment.id).destroy_all
 
-    @equipment.destroy
+      # Eliminar el equipo
+      @equipment.destroy
 
-    respond_to do |format|
-      format.html { redirect_to equipment_index_url, notice: "Equipment and related Maintainers were successfully destroyed." }
-      format.json { head :no_content }
+      redirect_to maintainers_url, notice: "Maintainer and related Equipment were successfully destroyed."
+    else
+      # Manejo de errores si la eliminación falla
+      flash[:alert] = "Failed to destroy Maintainer."
+      redirect_to maintainers_url
     end
   end
+
 
 
 

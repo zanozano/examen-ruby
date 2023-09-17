@@ -144,7 +144,7 @@ body {
     gap: 1rem;
 
     &__item {
-        width: 33.3%;
+        width: 33%;
         background: var(--background-card);
         border-radius: var(--border-radius);
         padding: 1.8rem;
@@ -152,6 +152,12 @@ body {
         flex-direction: column;
         justify-content: space-between;
         gap: 1rem;
+        transition: all 0.5s ease-out;
+
+        &:hover {
+            background-color: #d4d4d4;
+            cursor: pointer;
+        }
     }
 
     &__item--only {
@@ -165,8 +171,6 @@ body {
         gap: 1rem;
 
     }
-
-
 
 }
 
@@ -182,6 +186,7 @@ body {
 
     &__h6 {
         font-size: .9rem;
+        font-weight: 600;
     }
 
 
@@ -297,14 +302,33 @@ body {
 .container-pagination {
     display: flex;
     justify-content: center;
-    background-color: #ededed;
     padding: .5rem;
-    gap: .8rem;
+    gap: .4rem;
     text-decoration: none;
     margin-top: 1rem;
 
     & a {
-
+        background-color: var(--background-card);
+        padding: 10px;
         text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
     }
+
+    & em {
+        background-color: var(--background-card);
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+    }
+
+    & span {
+        background-color: var(--background-card);
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+    }
+
 }

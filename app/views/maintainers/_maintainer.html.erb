@@ -1,47 +1,104 @@
-<div id="<%= dom_id maintainer %>" class="card mb-2">
-  <div class="card-body">
-    <p class="card-text">
-      <strong>Type equipment:</strong>
-      <%= maintainer.equipment ? maintainer.equipment.name : "Pendiente" %>
-    </p>
+<div id="<%= dom_id maintainer %>" class="<%= current_page?(maintainer_path(maintainer)) ? 'item-container__item--only' : 'item-container__item' %>">
 
-    <p class="card-text">
-      <strong>Type support:</strong>
-      <%= maintainer.support_type %>
-    </p>
+  <%# top  %>
+  <div class="item-section">
 
-    <p class="card-text">
-      <strong>Name:</strong>
-      <%= maintainer.name %>
-    </p>
+    <h6 class="item-section__h6">
+      <%= maintainer.created_at.strftime('%B %e, %Y %l:%M %p') %>
+    </h6>
 
-    <p class="card-text">
-      <strong>City:</strong>
-      <%= maintainer.city %>
-    </p>
+    <span>
+      <h6 class="item-section__h6">
+        ID
+        <%= maintainer.equipment ? maintainer.equipment.id : "No Available" %>
+      </h6>
+    </span>
 
-    <p class="card-text">
-      <strong>Material:</strong>
-      <%= maintainer.material %>
-    </p>
+    <span>
+      <h6 class="item-section__h6">
+        Name
+      </h6>
+      <span>
+        <%= "#{maintainer.equipment.equipment_type} #{maintainer.equipment.name}" %>
+      </span>
+    </span>
 
-    <p class="card-text">
-      <strong>Modified by:</strong>
-      <%= maintainer.modified_by_email || "No disponible" %>
-    </p>
+    <span>
+      <h6 class="item-section__h6">
+        Type Equipment
+      </h6>
+      <span>
+        <%= maintainer.name %>
+      </span>
+    </span>
 
-    <% if maintainer.photo.present? %>
-      <div class="d-flex justify-content-center align-items-center">
-        <%= image_tag maintainer.photo.url, class: "card-img-top mx-auto", style: "max-width: 200px; max-height: 200px;" %>
+    <span>
+      <h6 class="item-section__h6">
+        Type support
+      </h6>
+      <span>
+        <%= maintainer.support_type %>
+      </span>
+    </span>
+
+    <span>
+      <h6 class="item-section__h6">
+        City
+      </h6>
+      <span>
+        <%= maintainer.city %>
+      </span>
+    </span>
+
+    <span>
+      <h6 class="item-section__h6">
+        Material
+      </h6>
+      <span>
+        <%= maintainer.material %>
+      </span>
+    </span>
+
+    <span>
+      <h6 class="item-section__h6">
+        Modified by
+      </h6>
+      <p class="item-section__p">
+        <%= maintainer.modified_by_email || "No available" %>
+      </p>
+    </span>
+
+  </div>
+
+  <%# bottom %>
+  <div class="item-section">
+
+    <% if maintainer.equipment && maintainer.equipment.photo.present? %>
+      <div class="item-section__block-img">
+        <%= image_tag maintainer.equipment.photo.url, class: "card-img-top mx-auto", style: "max-width: 200px; max-height: 200px;" %>
       </div>
     <% else %>
-      <div class="d-flex justify-content-center align-items-center">
+      <div class="item-section__block-img">
         <%= image_tag "default.png", class: "card-img-top mx-auto", style: "max-width: 200px; max-height: 200px;" %>
       </div>
     <% end %>
-    <hr>
-    <% if action_name == "index" %>
-      <%= link_to "Mostrar", maintainer, class: "btn btn-primary" %>
+
+    <% unless current_page?(maintainer_path(maintainer)) %>
+      <%= link_to "Show", maintainer, class: "btn btn-primary" %>
     <% end %>
+
   </div>
+
 </div>
+
+<%# edited %>
+<% if maintainer.modified_by_email.present? %>
+  <style>
+    #<%= dom_id maintainer %>.item-container__item {
+       background-color: #EAFFE4;
+       &:hover {
+        background-color: #D3FFC6;
+       }
+     }
+  </style>
+<% end %>

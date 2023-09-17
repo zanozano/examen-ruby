@@ -1,18 +1,29 @@
-<div class="col-4 mx-auto">
-  <p style="color: green"><%= notice %></p>
+<div class="container">
+  <% if notice.present? %>
+    <div id="success-alert" class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
 
-  <h1 class="text-center fw-bold mb-4">Maintainers</h1>
-  <%= link_to "New maintainer", new_maintainer_path, class: "btn btn-success mb-2"%>
-
-  <div id="maintainers">
-    <% @maintainers.each do |maintainer| %>
-      <%= render maintainer %>
+  <div class="header">
+    <h2 class="header__h2">Maintainer List</h2>
+    <%= link_to new_maintainer_path, class: "button success" do %>
+      New Maintainer
+      <%= image_tag "new-icon.svg", alt: "New Icon", class: "button__icon" %>
     <% end %>
+  </div>
+  <%#  %>
+  <div id="maintainer">
+    <div class="item-container">
+      <%#  %>
+      <% @maintainers.each do |maintainer| %>
+        <%= render maintainer %>
+      <% end %>
+      <%#  %>
+    </div>
     <div>
-      <%= will_paginate @maintainers, class: "pagination justify-content-center" do |maintainer| %>
-        <%= maintainer.page_numbers class: "page-item" %>
-        <%= maintainer.previous_page class: "page-item" %>
-        <%= maintainer.next_page class: "page-item" %>
+      <%#  %>
+      <%= will_paginate @maintainers, class: "container-pagination" do |paginator| %>
       <% end %>
     </div>
   </div>
