@@ -1,30 +1,29 @@
-<div class="col-6 mx-auto">
-  <div class="card">
-    <h3 class="card-header">Sign in</h3>
-    <div class="card-body">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'needs-validation' }) do |f| %>
-        <div class="form-label">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', required: true, placeholder: "Ingrese su correo electrónico" %>
-        </div>
+<div class="container-registration col-md-6">
+  <div class="container-registration__card">
+    <h2 class="container-registration__h2">Sign in</h2>
+    <%#  %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'needs-validation' }) do |f| %>
+      <div class="form-label">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', required: true, placeholder: "Enter your email" %>
+      </div>
 
-        <div class="form-label">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', required: true, placeholder: "Ingrese su contraseña" %>
-        </div>
+      <div class="form-label">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', required: true, placeholder: "Enter your password" %>
+      </div>
 
-        <% if devise_mapping.rememberable? %>
-          <div class="form-check">
-            <%= f.check_box :remember_me, class: 'form-check-input' %>
-            <%= f.label :remember_me, class: 'form-check-label' %>
-          </div>
-        <% end %>
-        <hr>
-        <div class="actions">
-          <%= f.submit "Log in", class: 'btn btn-primary' %>
-          <%= link_to "Volver al inicio", root_path, class: 'btn btn-outline-primary' %>
+      <% if devise_mapping.rememberable? %>
+        <div class="form-check">
+          <%= f.check_box :remember_me, class: 'form-check-input' %>
+          <%= f.label :remember_me, class: 'form-check-label' %>
         </div>
       <% end %>
-    </div>
+      <div class="actions container-registration__actions">
+        <%= f.submit "Log in", class: 'btn btn-primary' %>
+        <%= link_to "Back", root_path, class: 'btn btn-outline-secondary' %>
+      </div>
+    <% end %>
+    <%#  %>
   </div>
 </div>

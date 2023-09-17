@@ -14,7 +14,7 @@ The Air Conditioning Control Hub, also known as the Full Clima App, is a robust 
 
 - **User Roles**: The Air Conditioning Control Hub incorporates role-based access control, distinguishing between administrators, technicians, and regular users. Each role has access to specific views and functionalities tailored to their responsibilities.
 
-### Gems Utilized:
+### Gems Utilized
 
 - **Bootstrap**: The application benefits from the Bootstrap gem to create a user-friendly and responsive interface, ensuring a seamless user experience.
 

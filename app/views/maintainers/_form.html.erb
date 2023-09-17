@@ -1,8 +1,7 @@
-<%= form_with(model: maintainer) do |form| %>
+<%= form_with(model: maintainer, class: "form") do |form| %>
   <% if maintainer.errors.any? %>
     <div class="alert alert-danger">
-      <h2><%= pluralize(maintainer.errors.count, "error") %> prohibited this maintainer from being saved:</h2>
-
+      <h4><%= pluralize(maintainer.errors.count, "error") %> prohibited this maintainer from being saved:</h4>
       <ul>
         <% maintainer.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -52,6 +51,7 @@
   </div>
 
   <div>
-    <%= form.submit "Save", class: "btn btn-primary" %>
+    <%= link_to "Back", maintainers_path, class: "btn btn-outline-secondary" %>
+    <%= form.submit (params[:action] == 'new') ? 'Create' : 'Update', class: 'btn btn-success' %>
   </div>
 <% end %>

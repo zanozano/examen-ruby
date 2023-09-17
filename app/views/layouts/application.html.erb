@@ -73,9 +73,20 @@
       <%= yield %>
     </div>
     <script>
-      setTimeout(function() {
-        document.getElementById('flash-message').style.display = 'none';
-      }, 6000);
+      document.addEventListener('DOMContentLoaded', function() {
+        setInterval(function() {
+          var flashMessage = document.getElementById('flash-message');
+          var successAlert = document.getElementById('success-alert');
+
+          if (flashMessage) {
+       flashMessage.style.display = 'none';
+          }
+
+          if (successAlert) {
+       successAlert.style.display = 'none';
+          }
+        }, 6000);
+      });
     </script>
   </body>
 </html>

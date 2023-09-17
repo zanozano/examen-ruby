@@ -1,11 +1,8 @@
-<div class="col-4 mx-auto">
-  <h1>Editing maintainer</h1>
+<div class="container-registration col-md-4">
+  <div class="container-registration__card">
+    <h2 class="container-registration__h2">Edit maintainer</h2>
 
-  <div class="card mb-2">
-    <div class="card-body">
-      <%= render "form", maintainer: @maintainer %>
-      <hr>
-      <%= link_to "Volver", maintainers_path, class: "btn btn-outline-secondary" %>
-    </div>
+    <%= render "form", maintainer: @maintainer %>
+
   </div>
 </div>
