@@ -108,6 +108,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dockerfile-rails (1.5.9)
+      rails
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
@@ -257,6 +259,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentry-rails (5.11.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.11.0)
+    sentry-ruby (5.11.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     shellany (0.0.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
@@ -307,6 +314,7 @@ DEPENDENCIES
   carrierwave
   debug
   devise
+  dockerfile-rails (>= 1.5)
   faker
   guard-livereload
   htmlbeautifier
@@ -318,6 +326,8 @@ DEPENDENCIES
   rails (~> 7.0.5)
   sassc-rails
   selenium-webdriver
+  sentry-rails (~> 5.11)
+  sentry-ruby (~> 5.11)
   sprockets-rails
   stimulus-rails
   turbo-rails
