@@ -1,0 +1,18 @@
+databases:
+  - name: fullclima-app
+    databaseName: fullclima_production
+    user: fullclima
+
+services:
+  - type: app
+    name: fullclima-app
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: fullclima_production
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
