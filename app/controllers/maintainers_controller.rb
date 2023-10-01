@@ -2,6 +2,21 @@ class MaintainersController < ApplicationController
   before_action :set_maintainer, only: %i[show edit update destroy]
   require 'csv'
 
+  def load_support_options
+    file_path = Rails.root.join('lib', 'assets', 'supports.csv') 
+    @support_options = File.read(file_path).split("\n")
+  end
+
+  def load_cities_from_csv
+    file_path = Rails.root.join('lib', 'assets', 'cities.csv')
+    @city_options = File.read(file_path).split("\n")
+  end
+
+  def load_materials_from_csv
+    file_path = Rails.root.join('lib', 'assets', 'materials.csv')
+    @material_options = File.read(file_path).split("\n")
+  end
+
   # GET /maintainers or /maintainers.json
   def index
     @maintainers = Maintainer.order(updated_at: :desc).paginate(page: params[:page], per_page: 3)
@@ -11,15 +26,21 @@ class MaintainersController < ApplicationController
   def show
   end
 
+
   # GET /maintainers/new
   def new
+    load_support_options
+    load_cities_from_csv
+    load_materials_from_csv
     @maintainer = Maintainer.new
-    @cities = load_cities_from_csv
   end
 
   # GET /maintainers/1/edit
   def edit
-     @maintainer.modified_by_email = current_user.email
+    load_support_options
+    load_cities_from_csv
+    load_materials_from_csv
+    @maintainer.modified_by_email = current_user.email
   end
 
   # POST /maintainers or /maintainers.json
@@ -95,15 +116,6 @@ class MaintainersController < ApplicationController
   params.require(:maintainer).permit(:equipment_type, :name, :city, :material, :photo, :equipment_id, :support_type, :modified_by_email)
 end
 
-
-  # Load cities from CSV file
-  def load_cities_from_csv
-    cities = []
-    CSV.foreach(Rails.root.join('lib', 'cities.csv'), headers: true) do |row|
-      cities << row['city_name']
-    end
-    cities
-  end
 
   
 end
