@@ -4,7 +4,7 @@ databases:
     user: fullclima
 
 services:
-  - type: app
+  - type: web
     name: fullclima-app
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
